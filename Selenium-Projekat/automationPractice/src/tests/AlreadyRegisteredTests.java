@@ -14,10 +14,23 @@ public class AlreadyRegisteredTests extends BaseTest {
 
     String validEmail = "hicailic1989@gmail.com";
     String validPass = "PinkFloyd";
+
+    String invalidEmail = "hicailic1989gmail.com";
+    String invalidEmailMessage = "Invalid email address.";
+
+    String invalidPassword = "pinkfloyd";
+    String invalidPasswordMessage = "Authentication failed.";
+
+    String emptyEmail = "";
+    String emptyEmailErrorMessage = "An email address required.";
+
+    String emptyPassword = "";
+    String emptyPasswordErrorMessage = "Password is required.";
+
     String signOutButton = "Sign out";
     String signInButton = "Sign in"; 
     
-    @Test
+    @Test// 5.login funkcionlanosti
     public void successfullLogIn() {
         homePage = new HomePage(driver);
         signInPage = new SignInPage(driver);
@@ -26,9 +39,74 @@ public class AlreadyRegisteredTests extends BaseTest {
         homePage.basePage();
         homePage.clickOnSignInButton();
         signInPage.login(validEmail,validPass);
-        myAccountPage.verifyYouAreLoggedIn(signOutButton);// stavio si signOut1 jer nece isti naziv dugmeta da radi kad validiras da je acount napravljen
+        myAccountPage.verifyYouAreLoggedIn(signOutButton);
     }
-    @Test 
+
+    @ Test
+    public void invalidEmailTest() {
+        homePage = new HomePage(driver);
+        signInPage = new SignInPage(driver);
+
+        homePage.basePage();
+        homePage.clickOnSignInButton();
+        signInPage.login(invalidEmail, validPass);
+        signInPage.verifyUnsuccessfullLogin(invalidEmailMessage);
+        try {
+            Thread.sleep(3000); 
+        } catch (InterruptedException exception) {
+            exception.printStackTrace();
+        }
+    }
+
+    @ Test
+    public void invalidPasswordTest() {
+        homePage = new HomePage(driver);
+        signInPage = new SignInPage(driver);
+
+        homePage.basePage();
+        homePage.clickOnSignInButton();
+        signInPage.login(validEmail, invalidPassword);
+        signInPage.verifyUnsuccessfullLogin(invalidPasswordMessage);
+        try {
+            Thread.sleep(3000); 
+        } catch (InterruptedException exception) {
+            exception.printStackTrace();
+        }
+    }
+
+    @ Test
+    public void emptyEmailTest() {
+        homePage = new HomePage(driver);
+        signInPage = new SignInPage(driver);
+
+        homePage.basePage();
+        homePage.clickOnSignInButton();
+        signInPage.login(emptyEmail, validPass);
+        signInPage.verifyUnsuccessfullLogin(emptyEmailErrorMessage);
+        try {
+            Thread.sleep(3000); 
+        } catch (InterruptedException exception) {
+            exception.printStackTrace();
+        }
+    }
+
+    @ Test
+    public void emptyPasswordTest() {
+        homePage = new HomePage(driver);
+        signInPage = new SignInPage(driver);
+
+        homePage.basePage();
+        homePage.clickOnSignInButton();
+        signInPage.login(validEmail, emptyPassword);
+        signInPage.verifyUnsuccessfullLogin(emptyPasswordErrorMessage);
+        try {
+            Thread.sleep(3000); 
+        } catch (InterruptedException exception) {
+            exception.printStackTrace();
+        }
+    }
+
+    @Test // 5.Logout funkcionalnost
     public void successfullLogOut(){
         homePage = new HomePage(driver);
         signInPage = new SignInPage(driver);

@@ -8,7 +8,18 @@ public class CreateAnAccountPage extends BasePage {
     public CreateAnAccountPage(WebDriver driver) {
         super(driver);
     }
+
     By yourPersonalInfoTitleBy = By.xpath("//*[@id='account-creation_form']/div[1]/h3");
+    By firstNameBy = By.xpath("//*[@id='customer_firstname']");
+    By lastNameBy = By.xpath("//*[@id='customer_lastname']");
+    By passwordBy = By.xpath("//*[@id='passwd']");
+    By addressBy = By.xpath("//*[@id='address1']");
+    By cityBy = By.xpath("//*[@id='city']");
+    By countryBy = By.xpath("//*[@id='id_country']");
+    By zipBy = By.xpath("//*[@id='postcode']");
+    By stateBy = By.xpath("//*[@id='id_state']");
+    By mobileBy = By.xpath("//*[@id='phone_mobile']");
+    By registerButtonBy = By.xpath("//*[@id='submitAccount']");
 
     public CreateAnAccountPage verifyCreateAnAccountPageOpen (String expectedText) {
         String yourPersonalInfo = readText(yourPersonalInfoTitleBy);
@@ -16,63 +27,53 @@ public class CreateAnAccountPage extends BasePage {
         return this;
     }
 
-    By fNameBy = By.xpath("//*[@id='customer_firstname']");
-
-    public CreateAnAccountPage inputFirstName (String fName) {
-        writeText(fNameBy, fName);
+    public CreateAnAccountPage inputFirstName (String firstName) {
+        writeText(firstNameBy, firstName);
         return this;
     }
-    By lNameBy = By.xpath("//*[@id='customer_lastname']");
-
-    public CreateAnAccountPage inputLastName (String lName) {
-        writeText(lNameBy, lName);
+    
+    public CreateAnAccountPage inputLastName (String lastName) {
+        writeText(lastNameBy, lastName);
         return this;
     }
-    By passwordBy = By.xpath("//*[@id='passwd']");
-
+    
     public CreateAnAccountPage inputPassword (String password) {
         writeText(passwordBy, password);
         return this;
     }
-    By addressBy = By.xpath("//*[@id='address1']");
-
+    
     public CreateAnAccountPage inputAddress (String address) {
         writeText(addressBy, address);
         return this;
     }
-    By cityBy = By.xpath("//*[@id='city']");
-
+    
     public CreateAnAccountPage inputCity (String city) {
         writeText(cityBy, city);
         return this;
     }
-    By countryBy = By.xpath("//*[@id='id_country']");
-
+    
     public CreateAnAccountPage selectCountry() {
-        Select drpState = new Select(driver.findElement(countryBy));
-        drpState.selectByVisibleText("United States");
+        Select droppCountry = new Select(driver.findElement(countryBy));
+        droppCountry.selectByVisibleText("United States");
         return this;
     }
-    By zipBy = By.xpath("//*[@id='postcode']");
-
+    
     public CreateAnAccountPage inputZip (String zip) {
         writeText(zipBy, zip);
         return this;
     }
-    By stateBy = By.xpath("//*[@id='id_state']");
 
     public CreateAnAccountPage selectState() {
-        Select drpState = new Select(driver.findElement(stateBy));
-        drpState.selectByVisibleText("Kansas");
+        Select droppState = new Select(driver.findElement(stateBy));
+        droppState.selectByVisibleText("Kansas");
         return this;
     }
-    By mobileBy = By.xpath("//*[@id='phone_mobile']");
-
+    
     public CreateAnAccountPage inputMobile (String mobPhone) {
         writeText(mobileBy, mobPhone);
         return this;
     }
-    By registerButtonBy = By.xpath("//*[@id='submitAccount']");
+    
     public CreateAnAccountPage registerButtonClick(){
         click(registerButtonBy);
         return this;

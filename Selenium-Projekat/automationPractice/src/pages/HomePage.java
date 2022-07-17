@@ -9,21 +9,23 @@ public class HomePage extends BasePage{
     }
 
     String baseURL = "http://automationpractice.com";
+    
+    By numberOfPopularProductsBy = By.cssSelector("ul#homefeatured>li");
+    By listOfBestSellers = By.cssSelector("ul#blockbestsellers>li");
+    By bestSellersButton = By.xpath("//*[@id='home-page-tabs']/li[2]/a");
+    By signInButtonBy = By.xpath("//*[@class='header_user_info']");
+    By tShirtButtonBy = By.xpath("//*[@id='block_top_menu']/ul/li[3]/a");
 
     public HomePage basePage() {
         driver.get(baseURL);
         return this;
     }
-
-    By numberOfPopularProductsBy = By.cssSelector("ul#homefeatured>li");
     
-    public HomePage validateNumOfPopularPro(int expectedNumberOfProducts){// ti prosledjujes u homePageTestu 6 expectedNumber of products!!!
+    public HomePage validateNumOfPopularPro(int expectedNumberOfProducts){// ti prosledjujes u homePageTestu 7 expectedNumber of products!!!
         int actualNumberOfProducts = locateElements(numberOfPopularProductsBy).size();//vrati intiger ove locirane
         assertIntegerEquals(expectedNumberOfProducts, actualNumberOfProducts);//
         return this;
     }
-
-    By listOfBestSellers = By.cssSelector("ul#blockbestsellers>li");
 
     public HomePage validateNumOfBestSellers(int expectedNumberOfProducts){
         int actualNumberOfProducts = locateElements(listOfBestSellers).size();
@@ -31,23 +33,17 @@ public class HomePage extends BasePage{
         return this;
     }
 
-    By bestSellersButton = By.xpath("//*[@id='home-page-tabs']/li[2]/a");
-
     public HomePage bestSellersClick(){
         click(bestSellersButton);
         return this;
     }
-
-    By signInButtonBy = By.xpath("//*[@class='header_user_info']");
 
     public HomePage clickOnSignInButton() {
         click(signInButtonBy);
         return this;
     }
 
-    By tShirtButtonBy = By.xpath("//*[@id='block_top_menu']/ul/li[3]/a");
-
-     public HomePage clickOnTshirtButton() {
+    public HomePage clickOnTshirtButton() {
         click(tShirtButtonBy);
         return this;
     }

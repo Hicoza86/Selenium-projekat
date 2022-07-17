@@ -15,7 +15,18 @@ public class HomePageTests extends BaseTest{
     public SignInPage signInPage;
     public MyAccountPage myAccountPage;
 
-    @Test
+    int numberOfPopularProducts = 7;
+    int numberOfBestSellProducts = 7;
+
+    String tShirtTitle = "T-SHIRTS ";
+    String cartTitle = "Product successfully added to your shopping cart";
+    String yourShoppingCart = "Your shopping cart";
+    
+    String validEmail = "hicailic1989@gmail.com";
+    String validPass = "PinkFloyd";
+    String signOutButton = "Sign out";
+
+    @Test// 1. otvoriti max browser
     public void openBrowser () {
         homePage = new HomePage(driver);
         homePage.basePage();
@@ -26,9 +37,8 @@ public class HomePageTests extends BaseTest{
             exception.printStackTrace();
         }
     }
-    int numberOfPopularProducts = 7;
-
-    @Test
+    
+    @Test// 2.popular ima 7
     public void checkNumberOfPopularProducts () {
         homePage = new HomePage(driver);
         homePage.basePage();
@@ -40,9 +50,8 @@ public class HomePageTests extends BaseTest{
             exception.printStackTrace();
         }
     }
-    int numberOfBestSellProducts = 7;
-
-    @Test
+    
+    @Test// 3.bestsellers ima 7
     public void checkNumberOfBestSellers () {
         homePage = new HomePage(driver);
         homePage.basePage();
@@ -51,16 +60,7 @@ public class HomePageTests extends BaseTest{
         
     }
 
-    String tShirtTitle = "T-SHIRTS ";
-    String cartTitle = "Product successfully added to your shopping cart";
-    String yourShoppingCart = "Your shopping cart";
-    // double totalProducts = 16.51;
-    // double totalShipping = 2.00;
-    // double total = totalProducts + totalShipping;
-    // double tax = 0.00;
-    // double totalTax = total + tax;
-
-    @Test
+    @Test// 6.ubaciti proizvod sa sekcije T-shirts u cart
     public void fromTshirtIntoCart () {
         homePage = new HomePage(driver);
         tshirtPage = new TshirtPage(driver);
@@ -75,22 +75,14 @@ public class HomePageTests extends BaseTest{
         tshirtPage.clickOnProceedToCheckOut();// klikni na dugme
         checkOutPage.verifyYouAreOnCheckOutPage(yourShoppingCart);// verifikuj da si na Chekout strani, title sop-cart summary
 
-        // checkOutPage.matchingTotalProductsPrice(totalProducts);
-        // checkOutPage.matchingTotalShippingPrice(totalShipping);
-        // checkOutPage.matchingFirstTotalPrice(total);
-        // checkOutPage.matchingTax(tax);
-        // checkOutPage.matchingSecondTotal(totalTax);
         try {
             Thread.sleep(3000); 
         } catch (InterruptedException exception) {
-            exception.printStackTrace();// odstampaj gresku ako te neko prekine u izvrsavanju koda
+            exception.printStackTrace();
         }
     }
-    String validEmail = "hicailic1989@gmail.com";
-    String validPass = "PinkFloyd";
-    String signOutButton1 = "Sign out";
-
-    @Test
+    
+    @Test// 7.total cena prikazana kako treba
         public void verifyTotPriceShowsAsExpected () {// pravis test da se uloguje ode na tshirt clikne i sve do kraja cene proveris
         homePage = new HomePage(driver);
         signInPage = new SignInPage(driver);
@@ -100,10 +92,8 @@ public class HomePageTests extends BaseTest{
 
         homePage.basePage();
         homePage.clickOnSignInButton();
-
         signInPage.login(validEmail,validPass);
-        myAccountPage.verifyYouAreLoggedIn(signOutButton1);
-
+        myAccountPage.verifyYouAreLoggedIn(signOutButton);
         myAccountPage.clickOnTshirtButton();
         tshirtPage.verifyTshirt(tShirtTitle);//verif da si stigo na tshirt
         tshirtPage.scrollMethod();
@@ -112,12 +102,9 @@ public class HomePageTests extends BaseTest{
         tshirtPage.clickOnProceedToCheckOut();
         checkOutPage.verifyYouAreOnCheckOutPage(yourShoppingCart);
 
-       // checkOutPage.matchingTotalProductsPrice(totalProducts);
-       // checkOutPage.matchingTotalShippingPrice(totalShipping);
         checkOutPage.matchingFirstTotalPrice();
-        // checkOutPage.matchingTax(tax);
         checkOutPage.matchingSecondTotal();
-        
+
         try {
             Thread.sleep(3000); 
         } catch (InterruptedException exception) {

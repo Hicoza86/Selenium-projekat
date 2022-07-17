@@ -8,6 +8,7 @@ public class MyAccountPage extends BasePage{
         super(driver);
     }
     By signOutButtonBy = By.xpath("//*[@id='header']/div[2]/div/div/nav/div[2]/a");
+    By tShirtButtonBy = By.xpath("//*[@id='block_top_menu']/ul/li[3]/a");
 
     public MyAccountPage verifyYouAreLoggedIn (String expectedText) {
         String signOutButton = readText(signOutButtonBy);
@@ -20,9 +21,7 @@ public class MyAccountPage extends BasePage{
         return this;
     }
 
-    By tShirtButtonBy = By.xpath("//*[@id='block_top_menu']/ul/li[3]/a");
-
-     public MyAccountPage clickOnTshirtButton() {
+    public MyAccountPage clickOnTshirtButton() {
         click(tShirtButtonBy);
         return this;
     }

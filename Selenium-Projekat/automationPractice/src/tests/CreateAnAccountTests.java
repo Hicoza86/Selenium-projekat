@@ -17,7 +17,7 @@ public class CreateAnAccountTests extends BaseTest {
     String authentTitle = "AUTHENTICATION";
     String yourPersonalInfoTitle = "YOUR PERSONAL INFORMATION";
     String signOutButton = "Sign out";
-    String hicaEmail = "hicailic113@gmail.com";
+    String hicaEmail = "hicailic11111@gmail.com";
 
     String firstName = "Nemanja";
     String lastName = "Ilic";
@@ -28,7 +28,7 @@ public class CreateAnAccountTests extends BaseTest {
     String phone = "+381658197129";
 
 
-    @Test
+    @Test // 4.uspesno kreiran nalog
     public void successfullAccountCreation() {// validiras da si na signIn strani
         homePage = new HomePage(driver);
         signInPage = new SignInPage(driver);// nisi prosledio drajver 
