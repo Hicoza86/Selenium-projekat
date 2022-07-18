@@ -51,11 +51,5 @@ public class CreateAnAccountTests extends BaseTest {
         createAnAccountPage.inputMobile(phone);
         createAnAccountPage.registerButtonClick();
         myAccountPage.verifyYouAreLoggedIn(signOutButton);// validirao si da si na myAccount strani preko Sign out dugmeta
-
-        try {
-            Thread.sleep(3000); 
-        } catch (InterruptedException exception) {
-            exception.printStackTrace();
-        }
     }
 }

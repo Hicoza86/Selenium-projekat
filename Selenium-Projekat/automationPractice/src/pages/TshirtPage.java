@@ -7,7 +7,7 @@ import org.openqa.selenium.interactions.Actions;
 
 public class TshirtPage extends BasePage {
     public TshirtPage(WebDriver driver) {
-        super(driver);//add to cart dugme treba kliknes tu se nalazi
+        super(driver);
     }
 
     By tShirtsBy = By.xpath("//*[@id='center_column']/h1/span[1]");

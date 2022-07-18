@@ -30,12 +30,6 @@ public class HomePageTests extends BaseTest{
     public void openBrowser () {
         homePage = new HomePage(driver);
         homePage.basePage();
-
-        try {
-            Thread.sleep(3000); 
-        } catch (InterruptedException exception) {
-            exception.printStackTrace();
-        }
     }
     
     @Test// 2.popular ima 7
@@ -43,12 +37,6 @@ public class HomePageTests extends BaseTest{
         homePage = new HomePage(driver);
         homePage.basePage();
         homePage.validateNumOfPopularPro(numberOfPopularProducts);
-        
-        try {
-            Thread.sleep(3000); 
-        } catch (InterruptedException exception) {
-            exception.printStackTrace();
-        }
     }
     
     @Test// 3.bestsellers ima 7
@@ -74,12 +62,6 @@ public class HomePageTests extends BaseTest{
         tshirtPage.validateTshirtInCart(cartTitle);// text sa zelenim stikliran
         tshirtPage.clickOnProceedToCheckOut();// klikni na dugme
         checkOutPage.verifyYouAreOnCheckOutPage(yourShoppingCart);// verifikuj da si na Chekout strani, title sop-cart summary
-
-        try {
-            Thread.sleep(3000); 
-        } catch (InterruptedException exception) {
-            exception.printStackTrace();
-        }
     }
     
     @Test// 7.total cena prikazana kako treba
@@ -104,12 +86,6 @@ public class HomePageTests extends BaseTest{
 
         checkOutPage.matchingFirstTotalPrice();
         checkOutPage.matchingSecondTotal();
-
-        try {
-            Thread.sleep(3000); 
-        } catch (InterruptedException exception) {
-            exception.printStackTrace();// odstampaj gresku ako te neko prekine u izvrsavanju koda
-        }
     }
 }
 

@@ -50,26 +50,4 @@ public class CheckOutPage extends BasePage {
         doubleCompare(expected, actual, 0.1);
         return this;
     }
-
-    // public CheckOutPage matchingTotalProductsPrice(double expected) {
-    //     String totalProductsPrice = readText(totalProductsBy);
-    //     double actual = convertStringtoDouble(totalProductsPrice);
-    //     doubleCompare(expected, actual, 0.1);
-    //     return this;
-    // }
-
-    // public CheckOutPage matchingTotalShippingPrice(double expected) {
-    //     String totalShippingPrice = readText(totalShippingBy);
-    //     double actual = convertStringtoDouble(totalShippingPrice);
-    //     doubleCompare(expected, actual, 0.1);
-    //     return this;
-    // }
-    
-    // public CheckOutPage matchingTax(double expected) {
-    //     String tax = readText(taxBy);
-    //     double actual = convertStringtoDouble(tax);
-    //     doubleCompare(expected, actual, 0.1);
-    //     return this;
-    // }
-    
 }

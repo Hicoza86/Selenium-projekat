@@ -51,11 +51,6 @@ public class AlreadyRegisteredTests extends BaseTest {
         homePage.clickOnSignInButton();
         signInPage.login(invalidEmail, validPass);
         signInPage.verifyUnsuccessfullLogin(invalidEmailMessage);
-        try {
-            Thread.sleep(3000); 
-        } catch (InterruptedException exception) {
-            exception.printStackTrace();
-        }
     }
 
     @ Test
@@ -67,11 +62,6 @@ public class AlreadyRegisteredTests extends BaseTest {
         homePage.clickOnSignInButton();
         signInPage.login(validEmail, invalidPassword);
         signInPage.verifyUnsuccessfullLogin(invalidPasswordMessage);
-        try {
-            Thread.sleep(3000); 
-        } catch (InterruptedException exception) {
-            exception.printStackTrace();
-        }
     }
 
     @ Test
@@ -83,11 +73,6 @@ public class AlreadyRegisteredTests extends BaseTest {
         homePage.clickOnSignInButton();
         signInPage.login(emptyEmail, validPass);
         signInPage.verifyUnsuccessfullLogin(emptyEmailErrorMessage);
-        try {
-            Thread.sleep(3000); 
-        } catch (InterruptedException exception) {
-            exception.printStackTrace();
-        }
     }
 
     @ Test
@@ -99,11 +84,6 @@ public class AlreadyRegisteredTests extends BaseTest {
         homePage.clickOnSignInButton();
         signInPage.login(validEmail, emptyPassword);
         signInPage.verifyUnsuccessfullLogin(emptyPasswordErrorMessage);
-        try {
-            Thread.sleep(3000); 
-        } catch (InterruptedException exception) {
-            exception.printStackTrace();
-        }
     }
 
     @Test // 5.Logout funkcionalnost
@@ -118,12 +98,6 @@ public class AlreadyRegisteredTests extends BaseTest {
         myAccountPage.verifyYouAreLoggedIn(signOutButton);
         myAccountPage.clickOnSignOutButton();
         signInPage.verifyYouAreLoggedOut(signInButton);
-
-        try {
-            Thread.sleep(3000); 
-        } catch (InterruptedException exception) {
-            exception.printStackTrace();
-        }
         // klik on sign in button i validiras signout dugme
     }
 }
